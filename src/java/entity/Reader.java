@@ -13,10 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-/**
- *
- * @author Melnikov
- */
+
 @Entity
 public class Reader implements Serializable{
     @Id

@@ -24,10 +24,6 @@ import session.ReaderFacade;
 import session.UserFacade;
 import session.UserRolesFacade;
 
-/**
- *
- * @author jvm
- */
 @WebServlet(name = "ManagerServlet", urlPatterns = {
      "/addBook",
     "/createBook",

@@ -25,10 +25,7 @@ import session.RoleFacade;
 import session.UserFacade;
 import session.UserRolesFacade;
 
-/**
- *
- * @author jvm
- */
+
 @WebServlet(name = "LoginServlet", loadOnStartup = 1, urlPatterns = {
     "/loginForm",
     "/login",
@@ -52,9 +49,9 @@ public class LoginServlet extends HttpServlet {
         
        if(userFacade.findAll().size()>0) return;
         
-        Reader reader = new Reader("Juri", "Melnikov", "56569987");
+        Reader reader = new Reader("Yana", "Kurenko", "59823359");
         readerFacade.create(reader);
-        User user = new User("admin", "12345", reader);
+        User user = new User("admin", "admin", reader);
         userFacade.create(user);
         Role role = new Role("ADMIN");
         roleFacade.create(role);

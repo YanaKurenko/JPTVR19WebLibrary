@@ -10,10 +10,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-/**
- *
- * @author jvm
- */
+
 @Stateless
 public class ReaderFacade extends AbstractFacade<Reader> {
 

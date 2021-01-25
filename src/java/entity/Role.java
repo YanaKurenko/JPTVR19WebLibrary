@@ -13,10 +13,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-/**
- *
- * @author jvm
- */
 @Entity
 public class Role implements Serializable {
 

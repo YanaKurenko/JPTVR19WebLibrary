@@ -1,8 +1,4 @@
-<%-- 
-    Document   : page1
-    Created on : Nov 25, 2020, 10:14:04 AM
-    Author     : Melnikov
---%>
+
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

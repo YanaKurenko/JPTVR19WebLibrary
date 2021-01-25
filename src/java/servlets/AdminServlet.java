@@ -28,10 +28,7 @@ import session.RoleFacade;
 import session.UserFacade;
 import session.UserRolesFacade;
 
-/**
- *
- * @author jvm
- */
+
 @WebServlet(name = "AdminServlet", urlPatterns = {
     "/listReaders",
     "/adminForm",
@@ -110,7 +107,9 @@ public class AdminServlet extends HttpServlet {
                 user = userFacade.find(Long.parseLong(userId));
                 Role role = roleFacade.find(Long.parseLong(roleId));
                 UserRoles userRoles = new UserRoles(user, role);
-                userRolesFacade.setNewRole(userRoles);
+                if (!"admin".equals(user.getLogin())) {
+                    userRolesFacade.setNewRole(userRoles);
+                }
                 request.getRequestDispatcher("/adminForm").forward(request, response);
                 break;
         }

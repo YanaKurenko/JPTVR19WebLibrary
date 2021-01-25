@@ -25,10 +25,7 @@ import session.ReaderFacade;
 import session.UserFacade;
 import session.UserRolesFacade;
 
-/**
- *
- * @author Melnikov
- */
+
 @WebServlet(name = "ReaderServlet", urlPatterns = {
    
     "/takeOnBookForm",

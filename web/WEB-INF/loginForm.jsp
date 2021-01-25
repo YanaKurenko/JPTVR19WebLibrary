@@ -1,8 +1,4 @@
-<%-- 
-    Document   : loginForm
-    Created on : 11.01.2021, 13:43:50
-    Author     : jvm
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

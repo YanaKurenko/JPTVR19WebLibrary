@@ -13,10 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-/**
- *
- * @author jvm
- */
+
 @Entity
 public class UserRoles implements Serializable {
 
