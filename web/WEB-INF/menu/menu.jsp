@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-    <a href="loginForm">Войти</a><br>
+<a href="loginForm">Войти</a><br>
     <a href="logout">Выйти</a><br>
     <a href="addBook">Добавить книгу</a><br>
     <a href="registrationForm">Регистрация</a><br>
@@ -14,4 +14,3 @@
     <a href="takeOnBookForm">Выдать книгу</a><br>
     <a href="returnBookForm">Вернуть книгу</a><br>
     <a href="adminForm">Панель администратора</a><br>
-
