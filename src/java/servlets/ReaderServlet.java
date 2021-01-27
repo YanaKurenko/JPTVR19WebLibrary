@@ -60,19 +60,19 @@ public class ReaderServlet extends HttpServlet {
         HttpSession session = request.getSession(false);
         if(session == null){
             request.setAttribute("info", "У вас нет права использовать этот ресурс. Войдите!");
-            request.getRequestDispatcher("/WEB-INF/loginForm.jsp").forward(request, response);
+            request.getRequestDispatcher(LoginServlet.pathToFile.getString("login")).forward(request, response);
             return;
         }
         User user = (User) session.getAttribute("user");
         if (user == null){
             request.setAttribute("info", "У вас нет права использовать этот ресурс. Войдите!");
-            request.getRequestDispatcher("/WEB-INF/loginForm.jsp").forward(request, response);
+            request.getRequestDispatcher(LoginServlet.pathToFile.getString("login")).forward(request, response);
             return;
         }
         boolean isRole = userRolesFacade.isRole("READER",user);
         if(!isRole){
             request.setAttribute("info", "У вас нет права использовать этот ресурс. Войдите с соответствующими правами!");
-            request.getRequestDispatcher("/WEB-INF/loginForm.jsp").forward(request, response);
+            request.getRequestDispatcher(LoginServlet.pathToFile.getString("login")).forward(request, response);
             return;
         }
         String path = request.getServletPath();
@@ -80,14 +80,14 @@ public class ReaderServlet extends HttpServlet {
             case "/takeOnBookForm":
                 List<Book> listBooks = bookFacade.findAll();
                 request.setAttribute("listBooks", listBooks);
-                request.getRequestDispatcher("/WEB-INF/takeOnBookForm.jsp").forward(request, response);
+                request.getRequestDispatcher(LoginServlet.pathToFile.getString("takeOnBook")).forward(request, response);
                 break;
             case "/takeOnBook":
                 String bookId = request.getParameter("bookId");
                
                 if("".equals(bookId) || bookId == null){
                     request.setAttribute("info", "Выберите книгу или читателя.");
-                    request.getRequestDispatcher("/takeOnBookForm").forward(request, response);
+                    request.getRequestDispatcher(LoginServlet.pathToFile.getString("takeOnBook")).forward(request, response);
                     break;
                 }
                 Book book = bookFacade.find(Long.parseLong(bookId));
@@ -100,30 +100,30 @@ public class ReaderServlet extends HttpServlet {
                                                 +history.getReader().getFirstname() 
                                                 + " "
                                                 +history.getReader().getLastname());
-                request.getRequestDispatcher("/index.jsp").forward(request, response);
+                request.getRequestDispatcher(LoginServlet.pathToFile.getString("index")).forward(request, response);
                 break;
             case "/returnBookForm":
                 List<History> listHistoriesWithReadingBooks = historyFacade.findReadingBooks(user.getReader());
                 if(listHistoriesWithReadingBooks == null){
                     request.setAttribute("info", "Нет читаемых книг");
-                    request.getRequestDispatcher("/WEB-INF/returnBookForm.jsp").forward(request, response);
+                    request.getRequestDispatcher(LoginServlet.pathToFile.getString("returnBook")).forward(request, response);
                     break;
                 }
                 request.setAttribute("listHistoriesWithReadingBooks", listHistoriesWithReadingBooks);
-                request.getRequestDispatcher("/WEB-INF/returnBookForm.jsp").forward(request, response);
+                request.getRequestDispatcher(LoginServlet.pathToFile.getString("returnBook")).forward(request, response);
                 break;
             case "/returnBook":
                 String historyId = request.getParameter("historyId");
                 if("".equals(historyId) || historyId == null){
                     request.setAttribute("info", "Выберите возвращаемую книгу.");
-                    request.getRequestDispatcher("/returnBookForm").forward(request, response);
+                    request.getRequestDispatcher(LoginServlet.pathToFile.getString("returnBook")).forward(request, response);
                     break;
                 }
                 history = historyFacade.find(Long.parseLong(historyId));
                 history.setReturnDate(new GregorianCalendar().getTime());
                 historyFacade.edit(history);
                 request.setAttribute("info", "Возвращена книга: "+ history.getBook().getName());
-                request.getRequestDispatcher("/index.jsp").forward(request, response);
+                request.getRequestDispatcher(LoginServlet.pathToFile.getString("index")).forward(request, response);
                 break;
         }
     }

@@ -8,6 +8,7 @@
     <title>Наша библиотека</title>
   </head>
   <body>
+      <div class="container">
     <h1>Библиотека JPTVR19</h1>
     <p>${info}</p>
     <br>
