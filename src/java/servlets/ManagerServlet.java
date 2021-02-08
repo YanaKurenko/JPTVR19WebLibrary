@@ -75,9 +75,11 @@ public class ManagerServlet extends HttpServlet {
         String path = request.getServletPath();
         switch (path) {
             case "/addBook":
+                request.setAttribute("addBook", "true");
                 request.getRequestDispatcher(LoginServlet.pathToFile.getString("addBook")).forward(request, response);
                 break;
             case "/createBook":
+                
                 String name = request.getParameter("name");
                 String author = request.getParameter("author");
                 String publishedYear = request.getParameter("publishedYear");
